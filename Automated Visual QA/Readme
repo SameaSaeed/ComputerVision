@@ -1,0 +1,37 @@
+Installations
+
+Install Jenkins:
+sudo apt update
+sudo apt install jenkins -y
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+Access Jenkins at: http://localhost:8080
+
+Install Java (required by Jenkins):
+sudo apt install default-jre -y
+
+Install Python & Selenium:
+pip install selenium
+
+Install Chrome and Chromedriver:
+sudo apt install chromium-browser chromium-chromedriver -y
+chromium-browser --version
+chromedriver --version
+
+Set Up Jenkins to Run Visual QA Script
+
+1. Open Jenkins at http://localhost:8080
+2. Log in and create a Freestyle Project: Visual_QA_Pipeline
+3. Under Build Steps, choose "Execute Shell", and add:
+cd ~/visual-qa-lab
+python3 visual_check.py
+Save and build the project
+
+4. Check console output and confirm:
+Page title check passed
+Screenshot was saved
+
+Optional Enhancements
+Use git to pull test code into Jenkins
+Store test reports or screenshots in a specific folder
+Extend the test to compare screenshots using Pillow or OpenCV for pixel difference
